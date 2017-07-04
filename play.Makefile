@@ -1,7 +1,8 @@
 #.SILENT
 IMAGE_NAME = image-name
 CONTAINER_NAME = container-name
-PORT = 3005
+CONTAINER_PORT = 80
+HOST_PORT = 3002
 
 #using space or tab is an important choice in formatting @echo statements
 help:
@@ -21,7 +22,7 @@ build:
 	sudo docker build -t $(IMAGE_NAME) .
 
 run: 	
-	sudo docker run -d -p 80:$(PORT) -v /home/olaolu/Documents/projecta/src/:/var/www/html/ --name $(CONTAINER_NAME) $(IMAGE_NAME)
+	sudo docker run -d -p $(HOST_PORT):$(CONTAINER_PORT) -v /home/olaolu/Documents/projecta/src/:/var/www/html/ --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
 stop: 
 	sudo docker stop $(CONTAINER_NAME)
@@ -29,7 +30,7 @@ stop:
 	sudo docker rmi $(IMAGE_NAME)
 
 url: 
-	curl http://localhost:$(PORT)
+	curl http://localhost:$(HOST_PORT)
 
 deps:	
 	@echo "*docker"
