@@ -1,4 +1,0 @@
-#installed in this order
-create-react-app
-jenkins
-docker

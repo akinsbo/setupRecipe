@@ -1,4 +1,4 @@
-#The readme 
+#The readme
 
 JENKINS DOES NOT TERMINATE ON JEST TEST
 -Did this: add --forceExit to package.json
@@ -13,3 +13,9 @@ JENKINS DOES NOT TERMINATE ON JEST TEST
 -Action: Use Mocha instead.
 
 
+
+First setup docker registry and install files by running
+#installed in this order
+create-react-app
+jenkins
+docker
