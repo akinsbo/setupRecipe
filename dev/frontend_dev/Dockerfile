@@ -1,8 +1,8 @@
+FROM localhost:5000/my-ubuntu:16.04
+
 LABEL vendor="Olaolu Akinsete"
 LABEL com.projectb.version="0.0.1-beta"
 LABEL Description="This is one of the frontend boxes for A/B testing"
-
-FROM localhost:5000/my-ubuntu:16.04
 
 MAINTAINER Olaolu Akinsete version:0.1
 
@@ -19,10 +19,6 @@ RUN echo 'setting environment variables'
 ENV container-type=frontend language=js
 ENV framework=reactjs
 ENV environment=dev version="0.0.1-beta"
-
-#The UID of this container
-USER FRONTEND_USER
-
 
 EXPOSE 80 3000
 
