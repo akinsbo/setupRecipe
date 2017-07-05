@@ -8,9 +8,9 @@ MAINTAINER Olaolu Akinsete version:0.1
 
 RUN apt-get update
 
-COPY build/ /var/www/html
+COPY build/ /var/www/html/
 
-#VOLUME var/www/html
+#VOLUME var/www/html/
 
 #
 RUN echo 'setting environment variables'
@@ -20,7 +20,7 @@ ENV container-type=frontend language=js
 ENV framework=reactjs
 ENV environment=dev version="0.0.1-beta"
 
-EXPOSE 80 3000
+# EXPOSE 80
 
 
 # HEALTHCHECK --interval=5m --timeout=3s \

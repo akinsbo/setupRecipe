@@ -3,7 +3,7 @@ IMAGE_NAME = image-name
 CONTAINER_NAME = container-name
 TAG_NAME =v0.01
 CONTAINER_PORT = 80
-HOST_PORT = 3002
+HOST_PORT = 3005
 REACT_DEV_DIR = /home/olaolu/Documents/projectb/dev/frontend_dev
 
 #using space or tab is an important choice in formatting @echo statements
@@ -36,6 +36,7 @@ docker-run:
 	sudo docker run -d -p $(HOST_PORT):$(CONTAINER_PORT) \
 	-v $(REACT_DEV_DIR)/build/:/var/www/html/ \
 	--name $(CONTAINER_NAME) $(IMAGE_NAME):$(TAG_NAME)
+	sudo curl http://localhost:$(HOST_PORT)
 
 docker-stop:
 	sudo docker stop $(CONTAINER_NAME)
