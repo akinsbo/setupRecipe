@@ -1,5 +1,6 @@
 INSTALL_SCRIPTS_DIR = shell-scripts/installation
 SETUP_SCRIPTS_DIR = shell-scripts/setups
+VIEW_SCRIPTS_DIR = shell-scripts/view
 #using space or tab is an important choice in formatting @echo statements
 help:
 	@echo
@@ -49,10 +50,18 @@ setup-docker-private-reg:
 	#sudo create-react-app frontend_dev
 	#
 	#
+pull-image-to-docker-private-reg:
+		@echo "installing docker private registry"
+		sudo bash $(SETUP_SCRIPTS_DIR)/pull-image-to-docker-registry.sh
+		sudo docker images
 
 stop-docker-registry:
 	@echo "as with any container, use docker stop"
 	sudo docker stop registry
+
+view-images-in-registry:
+	@echo "viewing images in registry"
+	sudo bash $(VIEW_SCRIPTS_DIR)/view-docker-registry-images.sh
 
 remove-docker-registry:
 	@echo "Stopping the registry container"
