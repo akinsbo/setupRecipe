@@ -10,6 +10,7 @@ help:
 	@echo "	help - show this message"
 	@echo "	install-docker-jenkins-react - install docker, jenkins and react"
 	@echo "	install-docker -  installs docker on device. if device is not amd-64, please edit dev/utils/shell-scripts/installation/docker.sh"
+	@echo " install-docker-compose - installs docker-compose."
 	@echo "	install-jenkins - installs jenkins on device"
 	@echo "	install-reactjs - installs nodejs, npm and create-react-app"
 	@echo "	url - view url"
@@ -26,6 +27,8 @@ install-all:
 	sudo bash $(INSTALL_SCRIPTS_DIR)/jenkins.sh
 	@echo "installing nodejs, npm and create-react-app"
 	sudo bash $(INSTALL_SCRIPTS_DIR)/create-react-app.sh
+	@echo "installing docker-compose"
+	sudo bash  $(INSTALL_SCRIPTS_DIR)/docker-compose.sh
 
 install-docker:
 	@echo "installing docker"
@@ -33,11 +36,15 @@ install-docker:
 
 install-jenkins:
 	@echo "installing Jenkins"
-	sudo bash $(INSTALL_SCRIPTS_DIR)jenkins.sh
+	sudo bash $(INSTALL_SCRIPTS_DIR)/jenkins.sh
 
 install-reactjs:
 	@echo "installing nodejs, npm and create-react-app"
 	sudo bash $(INSTALL_SCRIPTS_DIR)/create-react-app.sh
+
+install-docker-compose:
+	@echo "installing docker-compose"
+	sudo bash  $(INSTALL_SCRIPTS_DIR)/docker-compose.sh
 
 setup-docker-private-reg:
 	@echo "installing docker private registry"
@@ -49,7 +56,7 @@ setup-docker-private-reg:
 	#mkdir frontend_dev
 	#sudo create-react-app frontend_dev
 	#
-	#
+
 pull-image-to-docker-private-reg:
 		@echo "installing docker private registry"
 		sudo bash $(SETUP_SCRIPTS_DIR)/pull-image-to-docker-registry.sh
